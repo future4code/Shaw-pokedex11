@@ -4,11 +4,13 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { goToPokeDexPage } from "../routes/coordinator.js";
 
+
 const DetailPage = () => {
 
     const [pokemon, setPokemon] = useState({sprites: {}, stats: [], types: [], moves: []})
     
     const navigate = useNavigate()
+
 
     const { id } = useParams()
 
@@ -55,6 +57,7 @@ const DetailPage = () => {
 
     return (
         <div>
+
             <h1>Detail Page</h1>
             <div>
                 <img src={pokemon.sprites.front_default} alt="pokemon de frente" />
@@ -76,6 +79,7 @@ const DetailPage = () => {
                 {fetchPokemonMoves}
             </div>
             <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
+
         </div>
     )
 }
