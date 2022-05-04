@@ -12,18 +12,6 @@ const HomePage = () => {
 
     const navigate = useNavigate()
 
-    const getPokemon = () => {
-        const urlGetPokemon = 'https://pokeapi.co/api/v2/pokemon/'
-        axios
-        .get(urlGetPokemon)
-        .then((response) => {
-            console.log(response)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    }
-
     return (
         <div>
             <p>Home Page</p>
