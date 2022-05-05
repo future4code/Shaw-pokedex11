@@ -1,5 +1,4 @@
 import RouterComp from './routes/RouterComp';
-import { Header } from './styles';
 import { GlobalState } from './global/GlobalState';
 import { createGlobalStyle } from 'styled-components';
 
