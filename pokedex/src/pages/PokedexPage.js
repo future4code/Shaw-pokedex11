@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { goToHomePage } from "../routes/coordinator.js";
+import { goToHomePage , goToPokemonDetailPage } from "../routes/coordinator.js";
 import { Header, Title } from "../styles.js";
 import logo from "../images/pokedex-logo.png"
 import { Card, Main } from "./PokedexPageStyle.js";
@@ -22,7 +22,7 @@ const PokedexPage = () => {
                     <p>Nome Pokemon</p>
                     <p>Imagem Pokemon</p>
                     <button>Adicionar a Pokedex</button>
-                    <button>Detalhes</button>
+                    <button onClick={() => goToPokemonDetailPage(navigate)} >Detalhes</button>
                 </Card>
             </Main>
         </div>
