@@ -3,32 +3,35 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { goToPokeDexPage } from "../routes/coordinator.js";
+import logo from "../images/pokedex-logo.png"
+import { Header, Main } from "./DetailPageStyle.js";
+import { Title } from "../styles.js";
 
 
 const DetailPage = () => {
 
-    const [pokemon, setPokemon] = useState({sprites: {}, stats: [], types: [], moves: []})
-    
+    const [pokemon, setPokemon] = useState({ sprites: {}, stats: [], types: [], moves: [] })
+
     const navigate = useNavigate()
 
 
     const { id } = useParams()
 
-    useEffect(()=>{
+    useEffect(() => {
         getPokemonDetail()
     }, [])
 
     const getPokemonDetail = () => {
         const urlDetailPokemon = `https://pokeapi.co/api/v2/pokemon/${id}/`
         axios
-        .get(urlDetailPokemon)
-        .then((response) => {
-            console.log(response.data)
-            setPokemon(response.data)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+            .get(urlDetailPokemon)
+            .then((response) => {
+                console.log(response.data)
+                setPokemon(response.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     const fetchPokemonStatus = pokemon.stats.map((status) => {
@@ -58,27 +61,35 @@ const DetailPage = () => {
     return (
         <div>
 
-            <h1>Detail Page</h1>
-            <div>
-                <img src={pokemon.sprites.front_default} alt="pokemon de frente" />
-                <img src={pokemon.sprites.back_default} alt="pokemon de costas" />
-            </div>
+            <Header>
+                <img src={logo} alt="pokedex logo" />
+                <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
+            </Header>
 
-            <div>
-                <h2><i>Stats:</i></h2>
-                {fetchPokemonStatus}
-            </div>
+            <Title><h1>Detalhes</h1></Title>
 
-            <div>
-                <h2><i>Tipo:</i></h2>
-                {fetchPokemonTypes}
-            </div>
+            <Main>
+                <div>
+                    <img src={pokemon.sprites.front_default} alt="pokemon de frente" />
+                    <img src={pokemon.sprites.back_default} alt="pokemon de costas" />
+                </div>
 
-            <div>
-                <h2><i>Moves:</i></h2>
-                {fetchPokemonMoves}
-            </div>
-            <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
+                <div>
+                    <h2><i>Stats:</i></h2>
+                    {fetchPokemonStatus}
+                </div>
+
+                <div>
+                    <h2><i>Tipo:</i></h2>
+                    {fetchPokemonTypes}
+                </div>
+
+                <div>
+                    <h2><i>Moves:</i></h2>
+                    {fetchPokemonMoves}
+                </div>
+                <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
+            </Main>
 
         </div>
     )
