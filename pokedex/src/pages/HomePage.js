@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToPokeDexPage, goToPokemonDetailPage } from "../routes/coordinator.js";
+
 import { Header } from "../styles.js";
 import styled from "styled-components";
 
@@ -48,16 +49,20 @@ const HomePage = () => {
         goToPokemonDetailPage(navigate, id)
     }
 
+
     return (
         <div>
             <Header>
+                <img src={logo} alt="pokedex logo" />
                 <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
             </Header>
+
 
             <p>Home Page</p>
             <div>
                 {pokemons}
             </div>
+
         </div>
     )
 }
