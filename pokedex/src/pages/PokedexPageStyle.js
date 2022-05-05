@@ -18,10 +18,16 @@ max-width: 12vw;
 min-height: 30vh;
 
 flex-direction: column;
-align-items: flex-end;
 
-& button {
-    
+background-color: pink;
+
+img {
+    width: 100%;
+    height: 100%;
 }
 
+button {
+    width: 50%;
+    height: 100%;
+}
 `
