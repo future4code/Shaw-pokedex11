@@ -22,7 +22,7 @@ const PokedexPage = () => {
                     <p>Nome Pokemon</p>
                     <p>Imagem Pokemon</p>
                     <button>Adicionar a Pokedex</button>
-                    <button onClick={() => goToPokemonDetailPage(navigate)} >Detalhes</button>
+                    <button onClick={() => goToPokemonDetailPage(navigate)} >Ver Mais Detalhes</button>
                 </Card>
             </Main>
         </div>

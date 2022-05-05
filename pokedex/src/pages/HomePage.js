@@ -2,15 +2,10 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToPokeDexPage, goToPokemonDetailPage } from "../routes/coordinator.js";
+import logo from "../images/pokedex-logo.png";
+import { Header, Title } from "../styles.js";
+import { Card, Main, Buttons } from "./HomePageStyle.js";
 
-import { Header } from "../styles.js";
-import styled from "styled-components";
-
-const Card = styled.div`
-    border: 1px solid black;
-    margin: 50px;
-    padding: 20px;
-`
 
 const HomePage = () => {
 
@@ -25,22 +20,24 @@ const HomePage = () => {
     const getAllPokemons = () => {
         const urlAllPokemons = 'https://pokeapi.co/api/v2/pokemon/'
         axios
-        .get(urlAllPokemons)
-        .then((response) => {
-            setPokemonList(response.data.results)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+            .get(urlAllPokemons)
+            .then((response) => {
+                setPokemonList(response.data.results)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     const pokemons = pokemonList.map((pokemon, index) => {
-        const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`
+        const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`
         return (
             <Card>
-                <img src={url}/>
+                <img src={url} />
+
                 <button>Adicionar a PokeDex</button>
-                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Detalhes</button>
+                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Mais Detalhes</button>
+
             </Card>
         )
     })
@@ -49,7 +46,6 @@ const HomePage = () => {
         goToPokemonDetailPage(navigate, id)
     }
 
-
     return (
         <div>
             <Header>
@@ -57,12 +53,10 @@ const HomePage = () => {
                 <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
             </Header>
 
-
-            <p>Home Page</p>
-            <div>
+            <Title><h1>Lista de Pokemons</h1></Title>
+            <Main>
                 {pokemons}
-            </div>
-
+            </Main>
         </div>
     )
 }
