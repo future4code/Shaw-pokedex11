@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { goToPokeDexPage, goToPokemonDetailPage } from "../routes/coordinator.js";
 import logo from "../images/pokedex-logo.png";
 import { Header, Title } from "../styles.js";
-import { Card, Main, Buttons } from "./HomePageStyle.js";
-
+import { Card, Main } from "./HomePageStyle.js";
 
 const HomePage = () => {
 
@@ -34,10 +33,8 @@ const HomePage = () => {
         return (
             <Card>
                 <img src={url} />
-
-                <button>Adicionar a PokeDex</button>
+                <button>Adicionar Na PokeDex</button>
                 <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Mais Detalhes</button>
-
             </Card>
         )
     })
@@ -48,15 +45,18 @@ const HomePage = () => {
 
     return (
         <div>
+
             <Header>
                 <img src={logo} alt="pokedex logo" />
                 <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
             </Header>
 
             <Title><h1>Lista de Pokemons</h1></Title>
+
             <Main>
                 {pokemons}
             </Main>
+
         </div>
     )
 }
