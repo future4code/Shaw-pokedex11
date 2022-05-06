@@ -21,7 +21,7 @@ const PokedexPage = () => {
                 <Card>
                     <p>Nome Pokemon</p>
                     <p>Imagem Pokemon</p>
-                    <button>Adicionar a Pokedex</button>
+                    <button>Remover da Pokedex</button>
                     <button onClick={() => goToPokemonDetailPage(navigate)} >Ver Mais Detalhes</button>
                 </Card>
             </Main>
