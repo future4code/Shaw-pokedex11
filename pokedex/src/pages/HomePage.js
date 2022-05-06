@@ -50,8 +50,9 @@ const HomePage = () => {
         return (
             <Card key={pokemon.name}>
                 <img src={url}/>
+                <Title>{pokemon.name}</Title>
                 <button onClick={() => onClickAddToPokedex(pokemon)}>Adicionar a PokeDex</button>
-                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Mais Detalhes</button>
+                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Detalhes</button>
             </Card>
 
 
@@ -67,7 +68,7 @@ const HomePage = () => {
 
             <Header>
                 <img src={logo} alt="pokedex logo" />
-                <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
+                <button onClick={() => goToPokeDexPage(navigate)}>Visualizar Pokedex</button>
             </Header>
 
             <Title><h1>Lista de Pokemons</h1></Title>

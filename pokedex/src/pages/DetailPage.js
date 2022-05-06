@@ -63,7 +63,7 @@ const DetailPage = () => {
             <Header>
                 <button onClick={() => goToHomePage(navigate)}>Lista de Pokemons</button>
                 <img src={logo} alt="pokedex logo" />
-                <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
+                <button onClick={() => goToPokeDexPage(navigate)}>Visualizar Pokedex</button>
             </Header>
 
             <Title><h1>Detalhes</h1></Title>

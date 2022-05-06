@@ -8,7 +8,7 @@ import { Card, Main } from "./PokedexPageStyle.js";
 
 const PokedexPage = () => {
 
-const [pokedex, setPokedex] = usePokedex()
+    const [pokedex, setPokedex] = usePokedex()
 
     const navigate = useNavigate()
 
@@ -25,9 +25,11 @@ const [pokedex, setPokedex] = usePokedex()
         const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
         return (
             <Card key={pokemon.name}>
-                <img src={url}/>
+                <img src={url} />
+
+                <Title>{pokemon.name}</Title>
                 <button onClick={() => removeFromPokedex(pokemon.name)}>Remover da PokeDex</button>
-                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Detalhes</button>
+                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Detalhes</button>
             </Card>
         )
     })
@@ -43,7 +45,7 @@ const [pokedex, setPokedex] = usePokedex()
                 <button onClick={() => goToHomePage(navigate)}>Lista de Pokemons</button>
             </Header>
             <Title><h1>Pokedex</h1></Title>
-            <Main>               
+            <Main>
                 {pokedexList}
             </Main>
         </div>
