@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { goToHomePage, goToPokemonDetailPage } from "../routes/coordinator.js";
 import { usePokedex } from "../hooks/useGlobalState.js";
-import styled from "styled-components";
 import { Header, Title } from "../styles.js";
 import logo from "../images/pokedex-logo.png"
 import { Card, Main } from "./PokedexPageStyle.js";
@@ -45,9 +44,7 @@ const [pokedex, setPokedex] = usePokedex()
             </Header>
             <Title><h1>Pokedex</h1></Title>
             <Main>               
-                <Card>
-                   {pokedexList} 
-                </Card>
+                {pokedexList}
             </Main>
         </div>
     )
