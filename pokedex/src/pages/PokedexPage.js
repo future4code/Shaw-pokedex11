@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { goToHomePage, goToPokemonDetailPage, goToPokemonDetailPageFromPokedex } from "../routes/coordinator.js";
+import { goToHomePage, goToPokemonDetailPage } from "../routes/coordinator.js";
 import { usePokedex } from "../hooks/useGlobalState.js";
 import styled from "styled-components";
 import { Header, Title } from "../styles.js";

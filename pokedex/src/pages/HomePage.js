@@ -1,17 +1,10 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToPokeDexPage, goToPokemonDetailPage } from "../routes/coordinator.js";
-
 import { Header } from "../styles.js";
-import styled from "styled-components";
 import { usePokeList, usePokedex } from "../hooks/useGlobalState.js";
 
-const Card = styled.div`
-    border: 1px solid black;
-    margin: 50px;
-    padding: 20px;
-`
 
 const HomePage = () => {
 
