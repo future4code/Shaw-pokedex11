@@ -1,14 +1,17 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToPokeDexPage, goToPokemonDetailPage } from "../routes/coordinator.js";
+import { usePokeList, usePokedex } from "../hooks/useGlobalState.js";
 import logo from "../images/pokedex-logo.png";
 import { Header, Title } from "../styles.js";
 import { Card, Main } from "./HomePageStyle.js";
 
+
 const HomePage = () => {
 
-    const [pokemonList, setPokemonList] = useState([])
+    const [pokemonList, setPokemonList] = usePokeList()
+    const [pokedex, setPokedex] = usePokedex()
 
     const navigate = useNavigate()
 
@@ -28,14 +31,31 @@ const HomePage = () => {
             })
     }
 
-    const pokemons = pokemonList.map((pokemon, index) => {
-        const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`
+
+    const onClickAddToPokedex = (pokemon) => {
+        const copyPokedex = [...pokedex, pokemon]
+        setPokedex(copyPokedex)
+    }
+
+    const pokemonsFiltered = pokemonList
+    .filter((pokemon) => {
+        const isOnPokedex = pokedex.find((pk) => pk.name === pokemon.name)
+        return !isOnPokedex
+    })
+
+
+    const pokemons = pokemonsFiltered.map((pokemon) => {
+        const id = pokemon.url.split("/")[6]
+        const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
         return (
-            <Card>
-                <img src={url} />
-                <button>Adicionar na PokeDex</button>
-                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Mais Detalhes</button>
-            </Card>
+            <div key={pokemon.name}>
+                <img src={url}/>
+                {pokemon.name}
+                <button onClick={() => onClickAddToPokedex(pokemon)}>Adicionar a PokeDex</button>
+                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Detalhes</button>
+            </div>
+
+
         )
     })
 
