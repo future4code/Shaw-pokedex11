@@ -48,12 +48,11 @@ const HomePage = () => {
         const id = pokemon.url.split("/")[6]
         const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
         return (
-            <div key={pokemon.name}>
+            <Card key={pokemon.name}>
                 <img src={url}/>
-                {pokemon.name}
                 <button onClick={() => onClickAddToPokedex(pokemon)}>Adicionar a PokeDex</button>
-                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Detalhes</button>
-            </div>
+                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Mais Detalhes</button>
+            </Card>
 
 
         )

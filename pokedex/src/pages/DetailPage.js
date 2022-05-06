@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import styled from "styled-components";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { goToPokeDexPage, goToHomePage } from "../routes/coordinator.js";
