@@ -1,59 +1,74 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-text-align: center;
 align-items: center;
-
-min-width: 100vw;
-min-height: 90vh;
-
-display: flex;
-flex-direction: column;
-`
-
-export const Header = styled.div`
-background-color: #5cbd36;
-
-min-width: 100vw;
-min-height: 10vh;
-
-max-width: 100vw;
-max-height: 10vh;
+justify-content: center;
 
 display: flex;
 flex-direction: row;
 
-align-items: center;
-justify-content: space-between;
+flex-wrap: wrap;
 
-button {
-    
-    max-height: 8vh;
+min-width: 100%;
+max-width: 100%;
 
-    background-color: #ff7400;
- 
-    padding: 15px;
-    margin: 20px;
-    border: 1px;
-    
-    border-color: #FFFFFF;
+min-height: 90%;
+`
 
-    cursor: pointer;
+export const Status = styled.div`
+border: 1px solid black;
+margin: 10px;
+padding: 10px;
+border: 10px solid #5cbd36;
+background-color: #ff7400;
 
-    font-size: large;
+min-width: 20%;
+min-height: 50vh;
 
-    text-align: center;
-    justify-content: center;
+max-width: 20%;
+max-height: 50vh;
 
-:hover {
-    transform: scale(1.03);
+text-align: center;
+flex-direction: column;
+
+`
+
+export const Sprite = styled.div`
+border: 1px solid black;
+margin: 10px;
+padding: 10px;
+border: 10px solid #5cbd36;
+background-color: #ff7400;
+
+min-width: 25%;
+min-height: 70vh;
+
+max-width: 25%;
+max-height: 70vh;
+
+text-align: center;
+flex-direction: column;
+
+img {
+    width: 65%;
+    height: 100%;
 }
+`
 
-:active {
-    background-color: #000000;
-    color: #ff7400;
-    border-color: white;
-}
+export const TypeAndMoves = styled.div`
+border: 1px solid black;
+margin: 10px;
+padding: 10px;
+border: 10px solid #5cbd36;
+background-color: #ff7400;
 
-}
+min-width: 20%;
+min-height: 50vh;
+
+max-width: 20%;
+max-height: 50vh;
+
+flex-direction: column;
+
+text-align: center;
 `
