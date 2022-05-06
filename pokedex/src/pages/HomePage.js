@@ -33,7 +33,7 @@ const HomePage = () => {
         return (
             <Card>
                 <img src={url} />
-                <button>Adicionar Na PokeDex</button>
+                <button>Adicionar na PokeDex</button>
                 <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Mais Detalhes</button>
             </Card>
         )
