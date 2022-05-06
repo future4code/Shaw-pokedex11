@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToHomePage, goToPokemonDetailPage, goToPokemonDetailPageFromPokedex } from "../routes/coordinator.js";
-import { Header } from "../styles.js";
 import { usePokedex } from "../hooks/useGlobalState.js";
 import styled from "styled-components";
-
-const Card = styled.div`
-    border: 1px solid black;
-    margin: 50px;
-    padding: 20px;
-`
+import { Header, Title } from "../styles.js";
+import logo from "../images/pokedex-logo.png"
+import { Card, Main } from "./PokedexPageStyle.js";
 
 const PokedexPage = () => {
 
@@ -44,12 +40,13 @@ const [pokedex, setPokedex] = usePokedex()
     return (
         <div>
             <Header>
-                <button onClick={() => goToHomePage(navigate)}>Ir para lista de Pokemon</button>
+                <img src={logo} alt="pokedex logo" />
+                <button onClick={() => goToHomePage(navigate)}>Lista de Pokemons</button>
             </Header>
-            <p>PokeDex Page</p>
-            <div>
+            <Title><h1>Pokedex</h1></Title>
+            <Main>
                {pokedexList} 
-            </div>
+            </Main>
         </div>
     )
 }
