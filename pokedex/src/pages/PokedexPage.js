@@ -44,8 +44,10 @@ const [pokedex, setPokedex] = usePokedex()
                 <button onClick={() => goToHomePage(navigate)}>Lista de Pokemons</button>
             </Header>
             <Title><h1>Pokedex</h1></Title>
-            <Main>
-               {pokedexList} 
+            <Main>               
+                <Card>
+                   {pokedexList} 
+                </Card>
             </Main>
         </div>
     )

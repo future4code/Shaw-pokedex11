@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const Header = styled.div`
-
 background-color: #5cbd36;
 
-min-width: 100vw;
-min-height: 10vh;
+min-width: 100%;
+min-height: 10%;
 
-max-width: 100vw;
-max-height: 10vh;
+max-width: 100%;
+max-height: 10%;
 
 display: flex;
 flex-direction: row;
@@ -16,17 +15,14 @@ flex-direction: row;
 align-items: center;
 justify-content: space-between;
 
-button {
+button {   
+    min-width: 15vw;
 
-    /* min-width: 15vw; */
-    
-    max-height: 8vh;
+    min-height: 10vh;
+    max-height: 10vh;
 
     background-color: #ff7400;
 
-    
-    padding: 15px;
-    margin: 20px;
     border: 1px;
     
     border-color: #FFFFFF;
@@ -37,29 +33,20 @@ button {
 
     text-align: center;
     justify-content: center;
-
-:hover {
-    transform: scale(1.03);
-
-    /* background-color: #000000;
-    color: #ff7400;
-    border-color: white; */
-}
+    align-items: center;
 
 :active {
     background-color: #000000;
     color: #ff7400;
     border-color: white;
 }
-
 }
 
 img {
-
     min-width: 15vw;
 
+    min-height: 10vh;
     max-height: 10vh;
-
 }
 `
 

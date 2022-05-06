@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 // import styled from "styled-components";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { goToPokeDexPage } from "../routes/coordinator.js";
+import { goToPokeDexPage, goToHomePage } from "../routes/coordinator.js";
 import logo from "../images/pokedex-logo.png"
-import { Header, Main } from "./DetailPageStyle.js";
-import { Title } from "../styles.js";
+import { Main, Status, Sprite, TypeAndMoves } from "./DetailPageStyle.js";
+import { Header, Title } from "../styles.js";
 
 
 const DetailPage = () => {
@@ -62,6 +62,7 @@ const DetailPage = () => {
         <div>
 
             <Header>
+                <button onClick={() => goToHomePage(navigate)}>Lista de Pokemons</button>
                 <img src={logo} alt="pokedex logo" />
                 <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
             </Header>
@@ -69,26 +70,23 @@ const DetailPage = () => {
             <Title><h1>Detalhes</h1></Title>
 
             <Main>
-                <div>
+                <Status>
+                    <h2><b>Stats:</b></h2>
+                    {fetchPokemonStatus}
+                </Status>
+
+                <Sprite>
                     <img src={pokemon.sprites.front_default} alt="pokemon de frente" />
                     <img src={pokemon.sprites.back_default} alt="pokemon de costas" />
-                </div>
+                </Sprite>
 
-                <div>
-                    <h2><i>Stats:</i></h2>
-                    {fetchPokemonStatus}
-                </div>
-
-                <div>
-                    <h2><i>Tipo:</i></h2>
+                <TypeAndMoves>
+                    <h2><b>Tipo:</b></h2>
                     {fetchPokemonTypes}
-                </div>
 
-                <div>
-                    <h2><i>Moves:</i></h2>
+                    <h2><b>Moves:</b></h2>
                     {fetchPokemonMoves}
-                </div>
-                <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
+                </TypeAndMoves>
             </Main>
 
         </div>

@@ -2,8 +2,10 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToPokeDexPage, goToPokemonDetailPage } from "../routes/coordinator.js";
-import { Header } from "../styles.js";
 import { usePokeList, usePokedex } from "../hooks/useGlobalState.js";
+import logo from "../images/pokedex-logo.png";
+import { Header, Title } from "../styles.js";
+import { Card, Main } from "./HomePageStyle.js";
 
 
 const HomePage = () => {
@@ -20,14 +22,15 @@ const HomePage = () => {
     const getAllPokemons = () => {
         const urlAllPokemons = 'https://pokeapi.co/api/v2/pokemon/'
         axios
-        .get(urlAllPokemons)
-        .then((response) => {
-            setPokemonList(response.data.results)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+            .get(urlAllPokemons)
+            .then((response) => {
+                setPokemonList(response.data.results)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
+
 
     const onClickAddToPokedex = (pokemon) => {
         const copyPokedex = [...pokedex, pokemon]
@@ -51,6 +54,8 @@ const HomePage = () => {
                 <button onClick={() => onClickAddToPokedex(pokemon)}>Adicionar a PokeDex</button>
                 <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Detalhes</button>
             </div>
+
+
         )
     })
 
@@ -58,19 +63,19 @@ const HomePage = () => {
         goToPokemonDetailPage(navigate, id)
     }
 
-
     return (
         <div>
+
             <Header>
                 <img src={logo} alt="pokedex logo" />
                 <button onClick={() => goToPokeDexPage(navigate)}>Visualizar PokeDex</button>
             </Header>
 
+            <Title><h1>Lista de Pokemons</h1></Title>
 
-            <p>Home Page</p>
-            <div>
+            <Main>
                 {pokemons}
-            </div>
+            </Main>
 
         </div>
     )
