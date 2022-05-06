@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { goToPokeDexPage, goToPokemonDetailPage } from "../routes/coordinator.js";
 import { Header } from "../styles.js";
 import styled from "styled-components";
+import { usePokeList, usePokedex } from "../hooks/useGlobalState.js";
 
 const Card = styled.div`
     border: 1px solid black;
@@ -13,7 +14,8 @@ const Card = styled.div`
 
 const HomePage = () => {
 
-    const [pokemonList, setPokemonList] = useState([])
+    const [pokemonList, setPokemonList] = usePokeList()
+    const [pokedex, setPokedex] = usePokedex()
 
     const navigate = useNavigate()
 
@@ -33,14 +35,28 @@ const HomePage = () => {
         })
     }
 
-    const pokemons = pokemonList.map((pokemon, index) => {
-        const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`
+    const onClickAddToPokedex = (pokemon) => {
+        const copyPokedex = [...pokedex, pokemon]
+        setPokedex(copyPokedex)
+    }
+
+    const pokemonsFiltered = pokemonList
+    .filter((pokemon) => {
+        const isOnPokedex = pokedex.find((pk) => pk.name === pokemon.name)
+        return !isOnPokedex
+    })
+
+
+    const pokemons = pokemonsFiltered.map((pokemon) => {
+        const id = pokemon.url.split("/")[6]
+        const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
         return (
-            <Card>
+            <div key={pokemon.name}>
                 <img src={url}/>
-                <button>Adicionar a PokeDex</button>
+                {pokemon.name}
+                <button onClick={() => onClickAddToPokedex(pokemon)}>Adicionar a PokeDex</button>
                 <button onClick={() => onClickPokemonDetail(pokemon.name)}>Ver Detalhes</button>
-            </Card>
+            </div>
         )
     })
 

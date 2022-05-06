@@ -12,4 +12,4 @@ export const goToPokeDexPage = (navigate) => {
 
 export const goToPokemonDetailPage = (navigate, id) => {
     navigate(`/pokemon/${id}`)
-} 
+}
