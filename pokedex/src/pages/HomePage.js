@@ -38,10 +38,10 @@ const HomePage = () => {
     }
 
     const pokemonsFiltered = pokemonList
-    .filter((pokemon) => {
-        const isOnPokedex = pokedex.find((pk) => pk.name === pokemon.name)
-        return !isOnPokedex
-    })
+        .filter((pokemon) => {
+            const isOnPokedex = pokedex.find((pk) => pk.name === pokemon.name)
+            return !isOnPokedex
+        })
 
 
     const pokemons = pokemonsFiltered.map((pokemon) => {
@@ -49,10 +49,10 @@ const HomePage = () => {
         const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
         return (
             <Card key={pokemon.name}>
-                <img src={url}/>
                 <Title>{pokemon.name}</Title>
-                <button onClick={() => onClickAddToPokedex(pokemon)}>Adicionar a PokeDex</button>
-                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Detalhes</button>
+                <img src={url} />
+                <button onClick={() => onClickAddToPokedex(pokemon)}>Por na Pokedex</button>
+                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Mostrar Detalhes</button>
             </Card>
 
 

@@ -13,6 +13,18 @@ min-width: 100%;
 max-width: 100%;
 
 min-height: 90%;
+
+@media screen and (max-device-width: 375px){
+    flex-direction: column;
+    }
+
+@media screen and (max-device-width: 599px){
+    flex-direction: column;
+    }
+
+@media screen and (max-device-width: 1090px){
+    flex-direction: column;
+}
 `
 
 export const Status = styled.div`
@@ -31,6 +43,20 @@ max-height: 50vh;
 text-align: center;
 flex-direction: column;
 
+@media screen and (max-device-width: 375px){
+    min-width: 80%;
+    min-height: 0%;
+    }
+
+@media screen and (max-device-width: 599px){
+    min-width: 80%;
+    min-height: 40%;
+    }
+
+@media screen and (max-device-width: 1090px){
+    min-width: 70%;
+    min-height: 70%;
+}
 `
 
 export const Sprite = styled.div`
@@ -52,6 +78,36 @@ flex-direction: column;
 img {
     width: 65%;
     height: 100%;
+
+    @media screen and (max-device-width: 375px){
+    min-width: 80%;
+    min-height: 40%;
+    }
+
+@media screen and (max-device-width: 599px){
+    min-width: 80%;
+    min-height: 40%;
+    }
+
+@media screen and (max-device-width: 1090px){
+    max-width: 60%;
+    max-height: 40%;
+}
+}
+
+@media screen and (max-device-width: 375px){
+    min-width: 80%;
+    min-height: 40%;
+    }
+
+@media screen and (max-device-width: 599px){
+    min-width: 80%;
+    min-height: 40%;
+    }
+
+@media screen and (max-device-width: 1090px){
+    min-width: 70%;
+    min-height: 70%;
 }
 `
 
@@ -71,4 +127,19 @@ max-height: 50vh;
 flex-direction: column;
 
 text-align: center;
+
+@media screen and (max-device-width: 375px){
+    min-width: 80%;
+    min-height: 40%;
+    }
+
+@media screen and (max-device-width: 599px){
+    min-width: 80%;
+    min-height: 40%;
+    }
+
+@media screen and (max-device-width: 1090px){
+    min-width: 70%;
+    min-height: 70%;
+}
 `

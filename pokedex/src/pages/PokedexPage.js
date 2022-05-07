@@ -25,11 +25,11 @@ const PokedexPage = () => {
         const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
         return (
             <Card key={pokemon.name}>
+                <Title>{pokemon.name}</Title>
                 <img src={url} />
 
-                <Title>{pokemon.name}</Title>
-                <button onClick={() => removeFromPokedex(pokemon.name)}>Remover da PokeDex</button>
-                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Detalhes</button>
+                <button onClick={() => removeFromPokedex(pokemon.name)}>Tirar da PokeDex</button>
+                <button onClick={() => onClickPokemonDetail(pokemon.name)}>Mostrar Detalhes</button>
             </Card>
         )
     })

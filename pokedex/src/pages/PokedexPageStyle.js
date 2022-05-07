@@ -80,10 +80,34 @@ img {
 }
 
 button {
-    min-width: 50%;
-    min-height: 100%;
+    font-size: large;
 
-    max-width: 50%;
-    max-height: 100%;
+    border: 10px solid green;
+    border-style: hidden;
+
+    margin: 5px;
+
+    padding: 10px;
+
+    min-height: 7vh;
+
+    width: 45%;
+
+    text-align: center;
+
+@media screen and (max-device-width: 375px){
+    min-width: 40%;
+    min-height: 40%;
+    }
+
+@media screen and (max-device-width: 599px){
+    min-width: 40%;
+    min-height: 40%;
+    }
+
+@media screen and (max-device-width: 1080px){
+    min-width: 40%;
+    min-height: 40%;
+    }
 }
 `
