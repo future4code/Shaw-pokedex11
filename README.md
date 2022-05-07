@@ -10,8 +10,8 @@ Design Proposal:
 
 ✔️ O que funciona
 
-Todas as páginas do site.
-Todos os botões.
+-Todas as páginas do site.
+-Todos os botões.
 
 ❌ O que não funciona
 
